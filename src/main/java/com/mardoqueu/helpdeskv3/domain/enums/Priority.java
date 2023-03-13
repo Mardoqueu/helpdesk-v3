@@ -1,17 +1,17 @@
 package com.mardoqueu.helpdeskv3.domain.enums;
 
-public enum Status {
-    OPEN(0, "OPEN"), PROGRESS(1, "PROGRESS"), CLOSED(2, "CLOSED");
+public enum Priority {
+    LOW(0, "LOW"), MEDIUM(1, "MEDIUM"), HIGH(2, "HIGH");
 
     private Integer code;
     private String description;
 
-    Status(Integer code, String description) {
+    Priority(Integer codigo, String descricao) {
         this.code = code;
         this.description = description;
     }
 
-    public Integer getCode() {
+    public Integer getCodigo() {
         return code;
     }
 
@@ -19,16 +19,16 @@ public enum Status {
         return description;
     }
 
-    public static Status toEnum(Integer cod){
+    public static Priority toEnum(Integer cod){
         if(cod == null){
             return null;
         }
 
-        for(Status x: Status.values()){
-            if(cod.equals(x.getCode())){
+        for(Priority x: Priority.values()){
+            if(cod.equals(x.getCodigo())){
                 return x;
             }
         }
-        throw new IllegalArgumentException("Invalid status");
+        throw new IllegalArgumentException("Invalid priority");
     }
 }
